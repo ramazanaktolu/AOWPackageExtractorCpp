@@ -4,8 +4,6 @@ This program helps to extract and repack .package and patch files for age of wus
 
 ### Usage
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
 ```markdown
 Usage: AOWPackageExtractorCpp.exe [options]
 Options:
