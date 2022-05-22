@@ -67,11 +67,11 @@ char* hex;
 bool fast;
 int main(int argc, char** argv)
 {
-    const char* test = new char[] { '\x81', 0};
-    std::string strtest = (std::string)test;
+    //const char* test = new char[] { '\x81', 0};
+    //std::string strtest = (std::string)test;
 
-    std::cout << +std::strtol(strtest.c_str(), nullptr, 2) << std::endl;
-    std::cout << +(unsigned char)test << std::endl;
+    //std::cout << +std::strtol(strtest.c_str(), nullptr, 2) << std::endl;
+    //std::cout << +(unsigned char)test << std::endl;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     pathSepertor = (char*)"/";
     pathReplacement = (char*)"\\";
