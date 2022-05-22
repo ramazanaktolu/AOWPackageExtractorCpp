@@ -23,7 +23,7 @@ std::vector<FileInfo> GetFileList();
 template <typename T>
 T* charToType(char* c, int size);
 
-short* charToShort(char* c);
+unsigned short charToShort(char* c);
 
 int* charToInt(char* c);
 

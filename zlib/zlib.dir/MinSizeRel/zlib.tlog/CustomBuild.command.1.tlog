@@ -1,0 +1,10 @@
+^D:\PROJECTS\VISUAL STUDIO 2019\PROJECTS\AOWPACKAGEEXTRACTORCPP\ZLIB\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/Projects/Visual Studio 2019/Projects/AOWPackageExtractorCpp/zlib" "-BD:/Projects/Visual Studio 2019/Projects/AOWPackageExtractorCpp/zlib" --check-stamp-file "D:/Projects/Visual Studio 2019/Projects/AOWPackageExtractorCpp/zlib/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

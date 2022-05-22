@@ -67,7 +67,11 @@ char* hex;
 bool fast;
 int main(int argc, char** argv)
 {
+    const char* test = new char[] { '\x81', 0};
+    std::string strtest = (std::string)test;
 
+    std::cout << +std::strtol(strtest.c_str(), nullptr, 2) << std::endl;
+    std::cout << +(unsigned char)test << std::endl;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     pathSepertor = (char*)"/";
     pathReplacement = (char*)"\\";
@@ -305,7 +309,7 @@ std::vector<FileInfo> GetFileList()
     //printf("current position %x\n", inputFile.tellg());
     char* namesize = new char[2];
     inputFile.read(namesize, 2);//short
-    short* ns = charToShort(namesize);
+    unsigned short ns = charToShort(namesize);
 
     Debug("getting zeros");
     //printf("current position %x\n", inputFile.tellg());
@@ -330,17 +334,24 @@ std::vector<FileInfo> GetFileList()
 
     //printf("current position %x\n", inputFile.tellg());
     char* tmp = new char[1];
+    //delete ns;
     //inputFile.read(tmp, 1);
     //inputFile.read(tmp, 1);
 
     for (int i = 0; i < (int)TFileCount; i++)
 	{
 
+        
 		Debug("");
-		inputFile.read(namesize, 2);//short
+        //char* namesize1 = new char[1];
+        //char * namesize2 = new char[1];
+        //inputFile.read(namesize1, 1);//short
+        //inputFile.read(namesize2, 1);//short
+        //namesize = (char*)"\0\0";
+        inputFile.read(namesize, 2);//short
 		ns = charToShort(namesize);
 
-		inputFile.read(tmp, 1);
+        inputFile.read(tmp, 1);
 		Debug("");
 
 
@@ -379,8 +390,9 @@ std::vector<FileInfo> GetFileList()
 
 
 		int namelen = (short)ns - 28;//9
+        Debug(std::to_string(namelen));
 		char* name = new char[namelen];
-
+        //delete ns;
 		inputFile.read(name, namelen);
 		Debug(((std::string)name).substr(0, namelen));
 
@@ -433,10 +445,22 @@ std::vector<FileInfo> GetFileList()
 }
 
 
-short* charToShort(char* c)
+unsigned short charToShort(char* c)
 {
-    Debug("");
-    return (short*)((c[0] << 8) | c[1]);
+    //Debug(std::to_string(std::strlen(c) ));
+    //auto s1 = unsigned short(c);
+    //auto aut = std::strtoul(c, ,16)
+    unsigned short s  = (unsigned short)((c[0] << 8) | c[1]);
+    //short s2 = (short)s;
+    Debug(std::to_string(s));
+    ////Debug(std::to_string(s));
+    ////return s;
+
+    //unsigned short val;
+    //std::memcpy(&val, c, 2);
+
+
+    return s;
 }
 
 int* charToInt(char* c)
