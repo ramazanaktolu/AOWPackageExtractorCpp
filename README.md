@@ -48,3 +48,5 @@ More info about using regular expression patterns, please follow that link. http
 Open command prompt (cmd), if requires, run it as Administrator. Make sure cmd path is matches with Extractor.exe's directory
 
 	AOWPackageExtractorCpp -i "D:\Age of wushu\res\text.package" -o "D:\Extracts\"
+
+Note: This application using zlib library copied from https://github.com/madler/zlib
